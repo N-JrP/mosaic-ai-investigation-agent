@@ -55,9 +55,10 @@ if (
 else:
     conn = duckdb.connect(DB_FILE)
     demo_check = conn.execute("SELECT COUNT(DISTINCT order_id) FROM v_olist_business").fetchone()[0]
+    receipt_check = conn.execute("SELECT COUNT(*) FROM v_sroie_document_review").fetchone()[0]
     conn.close()
 
-    if demo_check < 20:
+    if demo_check < 20 or receipt_check < 10:
         ensure_demo_data()
 
 
@@ -531,6 +532,7 @@ with tab_about:
 """,
         unsafe_allow_html=True,
     )
+
 
 
 
