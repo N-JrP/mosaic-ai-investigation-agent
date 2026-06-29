@@ -46,8 +46,19 @@ def table_exists(table_name: str) -> bool:
     return result > 0
 
 
-if not table_exists("v_olist_business") or not table_exists("v_sroie_document_review"):
+if (
+    not table_exists("v_olist_business")
+    or not table_exists("v_sroie_document_review")
+    or not table_exists("olist_payments")
+):
     ensure_demo_data()
+else:
+    conn = duckdb.connect(DB_FILE)
+    demo_check = conn.execute("SELECT COUNT(DISTINCT order_id) FROM v_olist_business").fetchone()[0]
+    conn.close()
+
+    if demo_check < 20:
+        ensure_demo_data()
 
 
 def run_query(sql: str) -> pd.DataFrame:
@@ -521,4 +532,5 @@ with tab_about:
 """,
         unsafe_allow_html=True,
     )
+
 
