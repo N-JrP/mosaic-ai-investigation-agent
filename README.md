@@ -1,102 +1,75 @@
-# Document Intelligence Data Platform
+# Mosaic
 
-End-to-end data platform for transforming unstructured business documents into structured analytics and AI-powered search.
+> **Prototype AI Investigation Agent for Business & Document Evidence**
 
----
+Mosaic started as a document intelligence platform. It has now evolved into an investigation workflow that combines business analytics and document review in one application.
 
-## 🚀 Live App
+## Why
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]((https://document-intelligence-data-platform-ed9qdjyfap3qg7cyow5f6w.streamlit.app/))
+Enterprise investigations are rarely based on a single data source.
 
----
+Business metrics live in databases, while supporting evidence lives inside documents. Switching between dashboards, SQL tools, and documents slows investigations and makes decisions harder to verify.
 
-## 🧠 Business Problem
-
-Organizations store critical operational data in unstructured formats such as:
-- insurance claims
-- support tickets
-- policy documents
-- incident reports
-
-This makes it difficult to:
-- analyze trends
-- extract insights
-- search information efficiently
+Mosaic explores how these workflows can be brought together in a transparent AI-assisted experience.
 
 ---
 
-## 💡 Solution
+## Current Capabilities
 
-This project converts unstructured documents into a structured data platform and enables semantic AI search.
+### 📊 Business Investigation
 
-It combines:
-- data engineering pipeline
-- analytics modeling
-- AI-based document retrieval
+- Natural-language business questions
+- Verified SQL generation
+- DuckDB execution
+- Evidence ranking
+- Business recommendations
 
----
+**Proof**
 
-## ⚙️ What it does
-
-- Ingests raw document data  
-- Extracts structured fields (type, status, region, amount)  
-- Loads into DuckDB warehouse  
-- Builds analytics models using dbt  
-- Runs data quality checks  
-- Creates embeddings for semantic search  
-- Provides Streamlit dashboard + AI query interface
-- Orchestrates pipeline execution with a production-style runner (task sequencing, logging, failure handling)
+![Business Investigation](screenshots/business_investigation.png)
 
 ---
 
-## 📊 Business Impact
+### 📄 Document Investigation
 
-- Faster document search using AI retrieval  
-- Structured analytics from unstructured data  
-- Improved visibility into claims, support, and incidents  
-- Enables decision-making using real-time insights  
+- Receipt search
+- Missing-field detection
+- Review queue
+- Human review workflow
 
----
+**Proof**
 
-## 🛠 Tech Stack
-
-Python • SQL • DuckDB • dbt • Pandas • Streamlit • FAISS • Sentence Transformers
+![Document Investigation](screenshots/document_investigation.png)
 
 ---
 
-## 📈 Key Features
+## Tech Stack
 
-- ETL pipeline (raw → bronze → silver → warehouse)  
-- dbt models (staging + marts)  
-- data quality validation  
-- analytics dashboards (counts, amounts)  
-- AI document retrieval (RAG-style search)  
-- filtering by document type & status  
-- similarity-based search results  
+Python • Streamlit • DuckDB • Pandas • Plotly • FAISS • Sentence Transformers
+
+Datasets: **Olist** • **SROIE**
 
 ---
 
-## 🔍 Example Queries
+## Status
 
-- insurance claim  
-- payment failure  
-- travel reimbursement  
-- login issue  
-- policy update Berlin  
+✅ Working prototype
+
+Current focus:
+
+- Transparent investigations
+- SQL-backed evidence
+- Human-in-the-loop review
+- Explainable recommendations
 
 ---
 
-## ▶️ Run Locally
+## Run
 
 ```bash
-conda activate doc_rag_project
-python src\run_pipeline.py
-streamlit run src\app.py
-```
----
+pip install -r requirements.txt
 
-## 🔮 Future Improvements
+python src/olist_loader.py
+python src/sroie_loader.py
 
-- Add real-time data ingestion (API / streaming)
-- Improve retrieval with hybrid search (metadata + embeddings)
-- Deploy using scalable cloud data warehouse (BigQuery / Snowflake)
+streamlit run src/app.py

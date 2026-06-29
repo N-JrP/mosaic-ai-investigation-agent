@@ -1,9 +1,8 @@
+streamlit
 pandas
 duckdb
-streamlit
-sentence-transformers
+sqlparse
 faiss-cpu
-dbt-core
+sentence-transformers
 dbt-duckdb
-python-dotenv
-numpy
+plotly
