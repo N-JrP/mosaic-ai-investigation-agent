@@ -88,6 +88,39 @@ def ensure_demo_data() -> None:
                 "search_text": "MR D.I.Y. 18-11-18 30.90",
             },
             {
+                "receipt_id": "X00016469672",
+                "split": "demo",
+                "company": "SOON HUAT MACHINERY ENTERPRISE",
+                "date": "11/01/2019",
+                "total": "327.00",
+                "needs_review": False,
+                "missing_fields": "",
+                "image_path": "",
+                "search_text": "SOON HUAT MACHINERY ENTERPRISE 11/01/2019 327.00",
+            },
+            {
+                "receipt_id": "X00016469619",
+                "split": "demo",
+                "company": "INDAH GIFT & HOME DECO",
+                "date": "19/10/2018",
+                "total": "60.30",
+                "needs_review": False,
+                "missing_fields": "",
+                "image_path": "",
+                "search_text": "INDAH GIFT HOME DECO 19/10/2018 60.30",
+            },
+            {
+                "receipt_id": "X00016469612",
+                "split": "demo",
+                "company": "BOOK TA .K (TAMAN DAYA) SDN BHD",
+                "date": "25/12/2018",
+                "total": "9.00",
+                "needs_review": False,
+                "missing_fields": "",
+                "image_path": "",
+                "search_text": "BOOK TA K TAMAN DAYA 25/12/2018 9.00",
+            },
+            {
                 "receipt_id": "X51005230617",
                 "split": "demo",
                 "company": "GERBANG ALAF RESTAURANTS SDN BHD",
@@ -98,9 +131,52 @@ def ensure_demo_data() -> None:
                 "image_path": "",
                 "search_text": "GERBANG ALAF RESTAURANTS 18/01/2018 26.60",
             },
+            {
+                "receipt_id": "X51005433522",
+                "split": "demo",
+                "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+                "date": "10 MAR 2018",
+                "total": "",
+                "needs_review": True,
+                "missing_fields": "total",
+                "image_path": "",
+                "search_text": "UNIHAKKA INTERNATIONAL SDN BHD 10 MAR 2018",
+            },
+            {
+                "receipt_id": "X51005663280",
+                "split": "demo",
+                "company": "T.A.S LEISURE SDN BHD",
+                "date": "30 DEC 17",
+                "total": "102.40",
+                "needs_review": True,
+                "missing_fields": "address",
+                "image_path": "",
+                "search_text": "T.A.S LEISURE SDN BHD 30 DEC 17 102.40",
+            },
+            {
+                "receipt_id": "X00016469669",
+                "split": "demo",
+                "company": "ABC HO TRADING",
+                "date": "09/01/2019",
+                "total": "31.00",
+                "needs_review": False,
+                "missing_fields": "",
+                "image_path": "",
+                "search_text": "ABC HO TRADING 09/01/2019 31.00",
+            },
+            {
+                "receipt_id": "X00016469676",
+                "split": "demo",
+                "company": "S.H.H. MOTOR (SUNGAI RENGIT) SDN. BHD.",
+                "date": "23-01-2019",
+                "total": "20.00",
+                "needs_review": False,
+                "missing_fields": "",
+                "image_path": "",
+                "search_text": "S.H.H. MOTOR SUNGAI RENGIT 23-01-2019 20.00",
+            },
         ]
     )
-
     conn = duckdb.connect(DB_FILE)
 
     conn.execute("CREATE OR REPLACE TABLE demo_olist_business AS SELECT * FROM business_df")
@@ -128,3 +204,4 @@ def ensure_demo_data() -> None:
     """)
 
     conn.close()
+
