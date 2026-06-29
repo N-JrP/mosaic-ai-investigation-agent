@@ -342,7 +342,6 @@ with tab_docs:
             )
 
         with top_right:
-            st.markdown("### Document Investigation")
             search_col, filter_col = st.columns([2, 1])
 
             with search_col:
@@ -532,5 +531,6 @@ with tab_about:
 """,
         unsafe_allow_html=True,
     )
+
 
 
