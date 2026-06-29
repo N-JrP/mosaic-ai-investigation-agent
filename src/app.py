@@ -1,6 +1,6 @@
 ﻿import pickle
 from pathlib import Path
-
+from demo_data import ensure_demo_data
 import duckdb
 import faiss
 import numpy as np
@@ -44,6 +44,10 @@ def table_exists(table_name: str) -> bool:
     conn.close()
 
     return result > 0
+
+
+if not table_exists("v_olist_business") or not table_exists("v_sroie_document_review"):
+    ensure_demo_data()
 
 
 def run_query(sql: str) -> pd.DataFrame:
@@ -517,3 +521,4 @@ with tab_about:
 """,
         unsafe_allow_html=True,
     )
+
