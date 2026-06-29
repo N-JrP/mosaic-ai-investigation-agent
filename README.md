@@ -4,6 +4,10 @@
 
 Mosaic started as a document intelligence platform. It has now evolved into an investigation workflow that combines business analytics and document review in one application.
 
+## Live Demo
+
+🔗 [Open Mosaic on Streamlit](https://mosaic-ai-investigation-agent-jn4yyhhyxrxjq528gsyzch.streamlit.app/)
+
 ## Why
 
 Enterprise investigations are rarely based on a single data source.
